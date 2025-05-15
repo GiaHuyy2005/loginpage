@@ -1,3 +1,4 @@
 # Run
-pnpm install
-pnpm run dev
+## pnpm install
+
+## git pnpm run dev
