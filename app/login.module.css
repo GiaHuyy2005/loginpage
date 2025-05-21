@@ -1,0 +1,202 @@
+/* reset body, html */
+.body,
+.html {
+  font-family: 'Segoe UI', sans-serif;
+  height: 100%;
+  background: #f8fafc;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* --- Left Side (Form) --- */
+.leftSide {
+  width: 50%;
+  padding: 60px 80px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.leftSide h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.leftSide p {
+  color: #64748b;
+  margin-bottom: 30px;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.label span {
+  color: red;
+}
+
+.inputField[type="email"],
+.inputField[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.passwordWrapper {
+  position: relative;
+}
+
+.formOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.submitButton {
+  width: 100%;
+  background-color: #4f46e5;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.note {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.note a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.alertBox {
+  padding: 12px;
+  background: #fef9c3;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* --- Right Side (Branding) --- */
+.rightSide {
+  width: 50%;
+  background: #0f172a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.brandingSection img {
+  width: 50px;
+  margin-bottom: 20px;
+}
+.brandingSection {
+  display: flex;
+  flex-direction: column;  
+  align-items: center;     
+  text-align: center;      
+}
+
+
+.brandingLogo {
+  width: 50px;
+  margin-bottom: 20px;
+}
+
+.brandingSection h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.brandingTitle {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.brandingSection p {
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+.brandingDescription {
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+/* --- Go Back --- */
+.goBack {
+  font-size: 14px;
+  margin-bottom: 30px;
+  color: #1e40af;
+  text-decoration: none;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .leftSide,
+  .rightSide {
+    width: 100%;
+    height: auto;
+  }
+
+  .leftSide {
+    padding: 40px 30px;
+  }
+
+  .rightSide {
+    padding: 40px 20px;
+  }
+
+  .brandingTitle {
+    font-size: 20px;
+  }
+
+  .brandingDescription {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .leftSide h2 {
+    font-size: 24px;
+  }
+
+  .submitButton {
+    font-size: 14px;
+  }
+
+  .formOptions {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .alertBox {
+    font-size: 12px;
+  }
+}
