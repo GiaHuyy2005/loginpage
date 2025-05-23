@@ -63,7 +63,7 @@ export default function Login() {
           <img src="logo1.jpg" alt="Logo" className={style.brandingLogo} />
           <h1 className={style.brandingTitle}>TailAdmin</h1>
           <p className={style.brandingDescription}>
-            Free and Open-Source Tailwind CSS Admin Dashboard Template
+            Free and Open-Source Tailwind CSS Admin Dashboard Template!
           </p>
         </div>
       </div>
