@@ -15,7 +15,7 @@ import { User } from '../models/user';
 export default function ProfilePage() {
   const router = useRouter();
 
-  const [user, setUser] = useState<User | null>(null); 
+  const [user, setUser] = useState<User | null>(null);
   const [role, setRole] = useState('');
 
   const [editField, setEditField] = useState<null | 'name' | 'phone' | 'address'>(null);
@@ -30,7 +30,7 @@ export default function ProfilePage() {
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
-      const userData: User = JSON.parse(storedUser); 
+      const userData: User = JSON.parse(storedUser);
       setUser(userData);
       setUserName(userData.name);
       setPhone(userData.phone || '');
