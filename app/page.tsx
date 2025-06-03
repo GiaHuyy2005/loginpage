@@ -1,31 +1,79 @@
 'use client';
 
-import { useRouter } from 'next/navigation'; // nếu dùng React thuần: `react-router-dom`
-import React from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { User } from './models/user';
+import styles from './home.module.css'; 
 
 export default function HomePage() {
   const router = useRouter();
 
-  const goToLogin = () => {
-    router.push('/login');
+  const [user, setUser] = useState<User | null>(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUser(null);
+    setDropdownOpen(false);
+    router.push('/');
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4 text-center">
-      <div className="max-w-xl">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">
-          Chào mừng đến với Web
-        </h1>
-        <p className="text-lg text-gray-600 mb-6">
-          Đây là trang chủ
-        </p>
-        <button
-          onClick={goToLogin}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow"
-        >
-          Đăng nhập
-        </button>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <h1>🏠 Trang Chủ</h1>
+
+        <div style={{ position: 'relative' }}>
+          {user ? (
+            <div>
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className={styles.dropdownButton}
+              >
+                👤 {user.name}
+              </button>
+
+              {dropdownOpen && (
+                <div className={styles.dropdownMenu}>
+                  <Link href="/profile">
+                    <div className={styles.dropdownItem}>👀 Profile</div>
+                  </Link>
+                  {user.role === 'admin' && (
+                    <Link href="/admin">
+                      <div className={styles.dropdownItem}>🛠️ Admin</div>
+                    </Link>
+                  )}
+                  <div
+                    onClick={handleLogout}
+                    className={`${styles.dropdownItem} ${styles.logout}`}
+                  >
+                    🚪 Đăng xuất
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className={styles.authButtons}>
+              <Link href="/login">
+                <button>Đăng nhập</button>
+              </Link>
+              <Link href="/register">
+                <button>Đăng ký</button>
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
-    </main>
+
+      <p>Chào mừng bạn đến với trang chủ!</p>
+    </div>
   );
 }

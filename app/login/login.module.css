@@ -40,19 +40,57 @@
 
 .label span {
   color: red;
-}
-
+}/* Giữ nguyên style input text, email, password */
 .inputField[type="email"],
 .inputField[type="password"] {
+   height: 50px;
   width: 100%;
   padding: 12px;
   border: 1px solid #cbd5e1;
   border-radius: 8px;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
-.passwordWrapper {
+/* Style riêng cho checkbox */
+.checkboxCustom {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  vertical-align: middle;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  cursor: pointer;
+  appearance: none;
+  background-color: white;
   position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.checkboxCustom:checked {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.checkboxCustom:checked::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  width: 4px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+
+/* Label chứa checkbox và text */
+.label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  user-select: none;
 }
 
 .formOptions {

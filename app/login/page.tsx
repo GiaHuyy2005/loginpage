@@ -8,11 +8,9 @@ import type { User } from '../models/user';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const router = useRouter();
-
-  // Giữ thông tin user sau khi đăng nhập thành công (optional)
-  const [user, setUser] = useState<User | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,11 +28,12 @@ export default function Login() {
       }
 
       setErrorMsg('');
-      setUser(user); 
+
+      // Lưu user vào localStorage
+      localStorage.setItem('user', JSON.stringify(user));
 
       alert('Đăng nhập thành công!');
-      router.push(`/dashboard?name=${encodeURIComponent(user.name)}&email=${encodeURIComponent(user.email)}`);
-
+      router.push('/'); // chuyển về trang chủ
     } catch (err) {
       setErrorMsg('Có lỗi xảy ra khi đăng nhập');
       console.error(err);
@@ -60,7 +59,6 @@ export default function Login() {
             maxLength={225}
             pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
             className={style.inputField}
-           
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -70,9 +68,10 @@ export default function Login() {
           </label>
           <div className={style.passwordWrapper}>
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               id="password"
               placeholder="Enter your password"
+              maxLength={50}
               required
               className={style.inputField}
               value={password}
@@ -82,7 +81,13 @@ export default function Login() {
 
           <div className={style.formOptions}>
             <label>
-              <input type="checkbox" /> Keep me logged in
+              <input
+                type="checkbox"
+                className={style.checkboxCustom}
+                checked={showPassword}
+                onChange={() => setShowPassword(!showPassword)}
+              />{' '}
+              Hiển thị mật khẩu
             </label>
             <a href="../login/forgot-password" className={style.forgotPassword}>Forgot Password?</a>
           </div>
@@ -94,7 +99,7 @@ export default function Login() {
           {errorMsg && <p style={{ color: 'red', marginTop: '10px' }}>{errorMsg}</p>}
 
           <p className={style.note}>
-            Only Pro Members Can Have Accounts – <a href="#">Purchase Now!</a>
+            Bạn chưa có tài khoản? – <a href="../register">Đăng Ký Ngay!</a>
           </p>
 
           <div className={style.alertBox}>

@@ -1,0 +1,242 @@
+/* admin.module.css */
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background-color: #1e293b; /* xanh đậm */
+  color: #e2e8f0; /* màu sáng */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+}
+
+.sidebarHeader {
+  margin-bottom: 30px;
+}
+
+.sidebarHeader p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.sidebarHeader button {
+  background-color: #2563eb; /* xanh dương */
+  border: none;
+  padding: 8px 12px;
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.sidebarHeader button:hover {
+  background-color: #1d4ed8;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+  flex-grow: 1;
+}
+
+.sidebar ul li {
+  padding: 12px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  transition: background-color 0.2s ease-in-out;
+  user-select: none;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li:focus {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.sidebarFooter {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebarFooter button {
+  background-color: #2563eb;
+  border: none;
+  padding: 10px 15px;
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.sidebarFooter button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Main content */
+.content {
+  flex-grow: 1;
+  padding: 30px;
+  background-color: white;
+  overflow-x: auto;
+}
+
+/* Tables */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 600px;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+}
+
+.table thead tr {
+  background-color: #2563eb;
+  color: white;
+}
+
+.table tbody tr:hover {
+  background-color: #f3f4f6;
+}
+
+/* Button for ban/unban */
+.ban,
+.unban {
+  padding: 6px 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.ban {
+  background-color: #ef4444; /* đỏ */
+  color: white;
+}
+
+.ban:hover {
+  background-color: #b91c1c;
+}
+
+.unban {
+  background-color: #22c55e; /* xanh lá */
+  color: white;
+}
+
+.unban:hover {
+  background-color: #15803d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 10px;
+  }
+  .sidebar ul {
+    display: flex;
+    gap: 10px;
+  }
+  .sidebar ul li {
+    margin-bottom: 0;
+  }
+  .content {
+    padding: 15px;
+  }
+  .table {
+    min-width: unset;
+    font-size: 12px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    min-height: auto; /* Tránh min-height quá lớn trên mobile */
+  }
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 10px 5px;
+    box-shadow: none; /* Tắt shadow để gọn hơn */
+    background-color: #1e293b; /* giữ màu nền */
+  }
+  .sidebarHeader {
+    flex: 1 0 auto;
+    margin-bottom: 0;
+    padding-right: 10px;
+  }
+  .sidebarHeader p {
+    font-size: 16px;
+    margin-bottom: 5px;
+    white-space: nowrap;
+  }
+  .sidebarHeader button {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+  .sidebar ul {
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap;
+    padding-left: 0;
+    margin: 0;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .sidebar ul::-webkit-scrollbar-thumb {
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 3px;
+  }
+  .sidebar ul li {
+    margin: 0;
+    white-space: nowrap;
+    padding: 8px 12px;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .content {
+    padding: 15px 10px;
+  }
+  .table {
+    min-width: 100%; /* full width trên mobile */
+    font-size: 13px;
+  }
+  .table th,
+  .table td {
+    padding: 10px 8px;
+  }
+  /* Button nhỏ gọn hơn */
+  .ban,
+  .unban {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+}

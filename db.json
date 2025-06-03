@@ -1,16 +1,44 @@
 {
   "users": [
     {
-      "id": 1,
-      "name":"Tester",
+      "id": "1",
+      "name": "Tester",
       "email": "testuser@gmail.com",
-      "password": "123456"
+      "password": "123456",
+      "role": "user",
+      "banned": false,
+      "address": "123 Đường A, Quận 1, TP.HCM",
+      "phone": "0901234567"
     },
     {
-      "id": 2,
-       "name":"Gia Huy",
+      "id": "2",
+      "name": "Gia Huy",
       "email": "admin@gmail.com",
-      "password": "admin123"
+      "password": "admin",
+      "role": "admin",
+      "banned": false,
+      "address": "456 Đường B, Gò Vấp, TP HCM",
+      "phone": "0837174651"
+    },
+    {
+      "id": "ed11",
+      "name": "huy",
+      "email": "1@gmail.com",
+      "password": "123",
+      "role": "user",
+      "banned": false,
+      "address": "789 Đường C, Quận 5, TP.HCM",
+      "phone": "0923456789"
+    },
+    {
+      "id": "58c9",
+      "name": "xàm cức",
+      "email": "12@gmail.com",
+      "password": "123",
+      "role": "user",
+      "banned": false,
+      "address": "321 Đường D, Quận 10, TP.HCM",
+      "phone": "0934567890"
     }
   ]
 }
