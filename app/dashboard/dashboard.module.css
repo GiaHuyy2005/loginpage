@@ -1,0 +1,43 @@
+/* dashboard.module.css */
+
+.container {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #0077ff;
+}
+
+.message {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.message.noEmail {
+  color: #888888;
+}
+
+.logoutButton {
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #e63946;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: #b8323a;
+}
