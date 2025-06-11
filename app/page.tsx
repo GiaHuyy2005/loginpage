@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { User } from './models/user';
-import styles from './home.module.css'; 
+import styles from './home.module.css';
 
 export default function HomePage() {
   const router = useRouter();
